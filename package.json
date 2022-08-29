@@ -12,10 +12,12 @@
   "repository": "https://github.com/JewelHasan47/mern_proshop.git",
   "author": "Jewel Hasan <jewelhasan477@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "http-errors": "^2.0.0"
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.5.3"
   },
   "devDependencies": {
     "concurrently": "^7.3.0",

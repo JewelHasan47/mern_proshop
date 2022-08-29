@@ -1,7 +1,8 @@
-const express = require( 'express' );
-const dotenv = require( 'dotenv' );
-const productsRoutes = require( './routes/products-routes' );
-const { notFoundHandler, errorHandler } = require( './middlewares/common/error-handler' );
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import productsRoutes from './routes/products-routes.js';
+import { notFoundHandler, errorHandler } from './middlewares/common/error-handler.js' ;
 
 // main app
 const app = express();
@@ -11,6 +12,10 @@ dotenv.config();
 // request parsers
 app.use( express.json() );
 app.use( express.urlencoded( { extended: true } ) );
+
+mongoose.connect( process.env.MONGODB_CONNECTION )
+    .then( () => console.log( 'Database Connection Successful...' ) )
+    .catch( e => console.log( `Error: ${ e.message }` ) );
 
 // routes
 app.get( '/', ( req, res ) => {

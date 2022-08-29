@@ -1,4 +1,4 @@
-const createError = require( 'http-errors' );
+import createError from 'http-errors';
 
 // 404 not found error handler
 const notFoundHandler = ( req, res, next ) => {
@@ -18,7 +18,7 @@ const errorHandler = ( err, req, res, next ) => {
     }
 }
 
-module.exports = {
+export {
     notFoundHandler,
     errorHandler
 }

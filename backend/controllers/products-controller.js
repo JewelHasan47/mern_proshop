@@ -1,4 +1,4 @@
-const products = require( '../data/products' );
+import products from '../data/products.js';
 
 const getProducts = ( req, res, next ) => {
     res.json( products );
@@ -9,8 +9,7 @@ const getProduct = ( req, res, next ) => {
     res.json( product );
 }
 
-
-module.exports = {
-    getProducts,
+export {
     getProduct,
+    getProducts
 }
