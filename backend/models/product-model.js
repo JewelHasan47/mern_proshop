@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import Product from '../../client/src/components/Product.jsx';
 
 const reviewSchema = mongoose.Schema( {
     name: { type: String, required: true },
