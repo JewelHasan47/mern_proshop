@@ -14,7 +14,7 @@ app.use( express.json() );
 app.use( express.urlencoded( { extended: true } ) );
 
 mongoose.connect( process.env.MONGODB_CONNECTION )
-    .then( () => console.log( 'Database Connection Successful...' ) )
+    .then( () => console.log( 'Database Connected Successfully...' ) )
     .catch( e => console.log( `Error: ${ e.message }` ) );
 
 // routes

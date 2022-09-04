@@ -1,12 +1,35 @@
-import products from '../data/products.js';
+import Product from '../models/product-model.js';
 
-const getProducts = ( req, res, next ) => {
-    res.json( products );
-}
+const getProducts = async ( req, res, next ) => {
+    try {
+        const products = await Product.find( {} );
 
-const getProduct = ( req, res, next ) => {
-    const product = products.find( p => p._id === req.params.id );
-    res.json( product );
+        if ( products.length !== 0 ) {
+            res.json( products );
+        } else {
+            res.status( 404 ).json( { message: 'Products Not Found!' } );
+        }
+
+    } catch ( err ) {
+        console.log( err.message )
+    }
+};
+
+const getProduct = async ( req, res, next ) => {
+    try {
+        const product = await Product.findOne( { _id: req.params.id } );
+
+        if ( product ) {
+            res.json( product );
+        } else {
+            res.status( 404 ).json( { message: 'Product Not Found!' } );
+        }
+
+    } catch ( err ) {
+        console.log( err.message )
+    }
+
+
 }
 
 export {
