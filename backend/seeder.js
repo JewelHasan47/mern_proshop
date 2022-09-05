@@ -9,10 +9,10 @@ import Order from './models/order-model.js';
 dotenv.config();
 
 mongoose.connect( process.env.MONGODB_CONNECTION )
-    .then( () => console.log( 'Database Connection Successful...' ) )
+    .then( () => console.log( 'Database Connected Successfully...' ) )
     .catch( e => console.log( `Error: ${ e.message }` ) );
 
-const importData = async() => {
+const importData = async () => {
     try {
         await User.deleteMany();
         await Product.deleteMany();
@@ -31,13 +31,13 @@ const importData = async() => {
         console.log( 'Data Imported!' );
 
         process.exit();
-    } catch( err ) {
+    } catch ( err ) {
         console.error( `${ err }` );
         process.exit( 1 );
     }
 }
 
-const destroyData = async() => {
+const destroyData = async () => {
     try {
         await User.deleteMany();
         await Product.deleteMany();
@@ -46,13 +46,13 @@ const destroyData = async() => {
         console.log( 'Data Destroyed!' );
 
         process.exit();
-    } catch( err ) {
+    } catch ( err ) {
         console.error( `${ err }` );
         process.exit( 1 );
     }
 }
 
-if( process.argv[ 2 ] === '-d' ) {
+if ( process.argv[ 2 ] === '-d' ) {
     destroyData();
 } else {
     importData();

@@ -19,7 +19,10 @@ const errorHandler = ( err, req, res, next ) => {
         next( 'There was an problem!' );
     } else {
         if ( err.message ) {
-            res.status( 500 ).json( err.message );
+            res.status( 500 ).json( {
+                message: err.message,
+                stack: process.env.NODE_ENV === 'production' ? null : err.stack
+            } );
         } else {
             res.send( 'There was an error!' );
         }

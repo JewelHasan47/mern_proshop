@@ -12,6 +12,7 @@ const getProducts = async ( req, res, next ) => {
 
     } catch ( err ) {
         console.log( err.message )
+        next( err );
     }
 };
 
@@ -26,7 +27,8 @@ const getProduct = async ( req, res, next ) => {
         }
 
     } catch ( err ) {
-        console.log( err.message )
+        console.log( err.message );
+        next( err );
     }
 
 
